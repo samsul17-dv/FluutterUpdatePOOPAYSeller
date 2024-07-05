@@ -1,0 +1,208 @@
+import 'dart:async'; // Import for Timer
+
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class Homescreen extends StatefulWidget implements PreferredSizeWidget {
+  final List<String> imgList = [
+    'https://samsulmuarif.my.id/server/banner/banner_01.png',
+    'https://samsulmuarif.my.id/server/banner/banner_02.png',
+    'https://samsulmuarif.my.id/server/banner/banner_03.png',
+  ];
+
+  final List<String> menuImgList = [
+    'https://samsulmuarif.my.id/server/menu/menu_01.png',
+    'https://samsulmuarif.my.id/server/menu/menu_02.png',
+    'https://samsulmuarif.my.id/server/menu/menu_03.jpeg',
+    'https://samsulmuarif.my.id/server/menu/menu_04.jpeg',
+  ];
+
+  @override
+  _HomescreenState createState() => _HomescreenState();
+
+  @override
+  Size get preferredSize => Size.fromHeight(50.0); // Adjusted preferredSize
+}
+
+class _HomescreenState extends State<Homescreen> {
+  PageController _pageController = PageController();
+  Timer? _timer; // Changed Timer to be nullable
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoPlay();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _startAutoPlay() {
+    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (_pageController.hasClients) {
+        if (_pageController.page?.round() == widget.imgList.length - 1) {
+          _pageController.animateToPage(0,
+              duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+        } else {
+          _pageController.nextPage(
+              duration: Duration(milliseconds: 800), curve: Curves.easeInOut);
+        }
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize:
+            Size.fromHeight(50.0), // Adjust the preferred height as needed
+        child: AppBar(
+          automaticallyImplyLeading: false, // Removes the back arrow
+          title: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 40, // Adjusted height
+                  decoration: BoxDecoration(
+                    color: Colors.white
+                        .withOpacity(0.2), // Background color with opacity
+                    borderRadius: BorderRadius.circular(4), // Rounded corners
+                    border: Border.all(color: Colors.grey), // Grey border
+                  ),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 12), // Horizontal padding
+                  child: Row(
+                    children: [
+                      Icon(Icons.search,
+                          color: Colors.grey,
+                          size: 20), // Search icon with adjusted size
+                      SizedBox(width: 8), // Space between icon and text
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              bottom: 2.0), // Adjust vertical padding
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Cari di POOPAY', // Placeholder text
+                              hintStyle: TextStyle(
+                                color: Colors.grey,
+                              ), // Grey placeholder text
+                              border: InputBorder.none, // Remove default border
+                            ),
+                            style: GoogleFonts.patrickHand(
+                              textStyle: TextStyle(color: Colors.grey),
+                            ), // Applying PatrickHand font
+                            textAlign: TextAlign.left, // Align text to the left
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(width: 10), // Space between search box and icons
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.mail_outline, color: Colors.grey),
+                    iconSize: 24.0, // Adjust the icon size as needed
+                    onPressed: () {
+                      // Action when mail icon is clicked
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.menu, color: Colors.grey),
+                    iconSize: 24.0, // Adjust the icon size as needed
+                    onPressed: () {
+                      // Action when menu icon is clicked
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+              height: 10), // Add top margin between appbar and banner slider
+          Container(
+            height: 135.0, // Height of the banner slider
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: widget.imgList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: 18), // Margin for the banner image container
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    image: DecorationImage(
+                      image: NetworkImage(widget.imgList[index]),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              },
+              onPageChanged: (int index) {
+                setState(() {
+                  // Optional: Add any state changes when page changes
+                });
+              },
+            ),
+          ),
+          SizedBox(height: 10), // Add space between banner slider and menu
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              for (int i = 0; i < widget.menuImgList.length; i++)
+                _buildMenu(widget.menuImgList[i]),
+            ],
+          ),
+          SizedBox(height: 10), // Add space between menu and "Produk Terbaru"
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Text(
+              'Produk Terbaru',
+              style: GoogleFonts.patrickHand(
+                textStyle: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+          ),
+          // Add your other widgets below
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMenu(String imageUrl) {
+    return Column(
+      children: [
+        Container(
+          width: 85,
+          height: 85,
+          margin: EdgeInsets.symmetric(vertical: 4),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

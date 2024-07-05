@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "1090696276545",
+    "project_id": "samsulmuarif-2118f",
+    "storage_bucket": "samsulmuarif-2118f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090696276545:android:9a0e32112a8bc08a0af4c0",
+        "android_client_info": {
+          "package_name": "com.example.aplikasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94gCY6C7uuS54bmF6Ns_foM0I-sdFpxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090696276545:android:4241854a583a0c8d0af4c0",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94gCY6C7uuS54bmF6Ns_foM0I-sdFpxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090696276545:android:d2ec765d3208242d0af4c0",
+        "android_client_info": {
+          "package_name": "com.poopay.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94gCY6C7uuS54bmF6Ns_foM0I-sdFpxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

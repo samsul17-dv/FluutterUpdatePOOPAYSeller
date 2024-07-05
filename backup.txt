@@ -1,0 +1,10 @@
+  @override
+  void initState() {
+    super.initState();
+    _checkInternetConnection();
+    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      setState(() {
+        _isConnected = result != ConnectivityResult.none;
+      });
+    });
+  }

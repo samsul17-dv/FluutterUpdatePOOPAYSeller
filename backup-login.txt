@@ -1,0 +1,51 @@
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Validasi berhasil, lakukan proses login
+                    _login();
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color(0xFF01AC66), // Warna teks di tombol
+                  padding: EdgeInsets.symmetric(vertical: 18.0), // Sedikit tinggikan tombol
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+                child: Text(
+                  'Masuk dan Nikmati Fitur',
+                  style: GoogleFonts.patrickHand(
+                    textStyle: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    // Ganti SignUpScreen dengan nama kelas halaman pendaftaran Anda
+                  );
+                },
+                child: Text(
+                  'Belum memiliki akun? Buat Yuk!',
+                  style: GoogleFonts.patrickHand(
+                    textStyle: TextStyle(
+                      fontSize: 14.0,
+                      color: Color(0xFF01AC66),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
