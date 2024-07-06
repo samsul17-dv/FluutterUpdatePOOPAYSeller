@@ -15,6 +15,8 @@ class InputFields extends StatelessWidget {
   final FocusNode _alamatTokoFocus = FocusNode();
   final FocusNode _bankFocus = FocusNode();
 
+  InputFields({super.key});
+
   InputDecoration _buildInputDecoration(String labelText) {
     return InputDecoration(
       hintText: labelText,
@@ -25,13 +27,13 @@ class InputFields extends StatelessWidget {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: Color(0xFF01AC66)),
+        borderSide: const BorderSide(color: Color(0xFF01AC66)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(color: Colors.grey[400]!),
       ),
-      contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
     );
   }
 
@@ -64,12 +66,12 @@ class InputFields extends StatelessWidget {
       if (response.statusCode == 200) {
         // Data sent successfully, handle response if needed
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Data berhasil dikirim')),
+          const SnackBar(content: Text('Data berhasil dikirim')),
         );
       } else {
         // Error sending data
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal mengirim data')),
+          const SnackBar(content: Text('Gagal mengirim data')),
         );
       }
     }
@@ -79,7 +81,7 @@ class InputFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         Form(
           key: _formKey,
@@ -97,7 +99,7 @@ class InputFields extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: _namaTokoController,
                 focusNode: _namaTokoFocus,
@@ -110,7 +112,7 @@ class InputFields extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: _alamatTokoController,
                 focusNode: _alamatTokoFocus,
@@ -123,7 +125,7 @@ class InputFields extends StatelessWidget {
                   return null;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: _bankController,
                 focusNode: _bankFocus,

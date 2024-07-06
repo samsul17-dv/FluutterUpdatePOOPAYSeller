@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DaftarSeller extends StatefulWidget {
+  const DaftarSeller({super.key});
+
   @override
   _DaftarSellerState createState() => _DaftarSellerState();
 }
@@ -37,7 +39,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                 color: Colors.grey,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView(
                 children: [
@@ -53,7 +55,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                       });
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   _buildMenuButton(
                     'https://assets.tokopedia.net/assets-tokopedia-lite/v2/atreus/kratos/684e58ec.svg',
                     'Official Store',
@@ -69,8 +71,8 @@ class _DaftarSellerState extends State<DaftarSeller> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
-            Container(
+            const SizedBox(height: 20),
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
@@ -90,7 +92,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                 width: 200,
                                 height: 200,
                               ),
-                              SizedBox(height: 0),
+                              const SizedBox(height: 0),
                               Text(
                                 'Kamu Belum Memilih Jenis Toko Nih!',
                                 textAlign: TextAlign.center,
@@ -99,7 +101,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(height: 0),
+                              const SizedBox(height: 0),
                               Text(
                                 'Silakan Pilih Jenis Toko Terlebih Dahulu Sebelum Membuat Toko, Pastikan Pilih Sesuai dengan Bisnis dan Keinginan Kamu Ya!',
                                 textAlign: TextAlign.center,
@@ -107,25 +109,25 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                   fontSize: 12,
                                 ),
                               ),
-                              SizedBox(height: 20),
-                              Container(
+                              const SizedBox(height: 20),
+                              SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: const Color(0xFF01AC66), // Ganti backgroundColor ke primary
+                                    padding: const EdgeInsets.symmetric(vertical: 16),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ),
                                   child: Text(
                                     'Kembali untuk Memilih Jenis Toko',
                                     style: GoogleFonts.patrickHand(
                                       fontSize: 18,
                                       color: Colors.white,
-                                    ),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xFF01AC66), // Ganti backgroundColor ke primary
-                                    padding: EdgeInsets.symmetric(vertical: 16),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4),
                                     ),
                                   ),
                                 ),
@@ -158,19 +160,19 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   _buildVerificationItem(
                                     'https://assets.tokopedia.net/assets-tokopedia-lite/v2/arael/kratos/ff154361.png', // URL gambar KTP dari internet
                                     'Ambil Foto E-KTP',
                                     'Siapkan E-KTP Asli Kamu dan Pastikan Masih Berlaku Ya!',
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   _buildVerificationItem(
                                     'https://assets.tokopedia.net/assets-tokopedia-lite/v2/atreus/kratos/a46faa51.png?ect=4g', // URL gambar lainnya dari internet
                                     'Ambil Selfie',
                                     'Siap - Siap! Cari Tempat Terang dan Lepas Kacamata atau Masker Kamu Ya!',
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
@@ -185,7 +187,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                             fontSize: 12,
                                             color: Colors.grey,
                                           ),
-                                          children: [
+                                          children: const [
                                             TextSpan(
                                               text: 'Saya menyetujui ',
                                             ),
@@ -205,8 +207,8 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(height: 20),
-                                  Container(
+                                  const SizedBox(height: 20),
+                                  SizedBox(
                                     width: double.infinity,
                                     child: ElevatedButton(
                                       onPressed: isVerifying
@@ -218,7 +220,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
 
                                               // Simulasi proses verifikasi
                                               await Future.delayed(
-                                                  Duration(seconds: 2));
+                                                  const Duration(seconds: 2));
 
                                               setState(() {
                                                 acceptPolicy = !acceptPolicy;
@@ -237,11 +239,18 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                                     return child;
                                                   },
                                                   transitionDuration:
-                                                      Duration(milliseconds: 0),
+                                                      const Duration(milliseconds: 0),
                                                   // Set duration to 0 milliseconds
                                                 ),
                                               );
                                             },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color(0xFF01AC66), // Ganti backgroundColor ke primary
+                                        padding: const EdgeInsets.symmetric(vertical: 16),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(4),
+                                        ),
+                                      ),
                                       child: Text(
                                         isVerifying
                                             ? 'Tunggu Sebentar Ya!'
@@ -249,13 +258,6 @@ class _DaftarSellerState extends State<DaftarSeller> {
                                         style: GoogleFonts.patrickHand(
                                           fontSize: 18,
                                           color: Colors.white,
-                                        ),
-                                      ),
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Color(0xFF01AC66), // Ganti backgroundColor ke primary
-                                        padding: EdgeInsets.symmetric(vertical: 16),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(4),
                                         ),
                                       ),
                                     ),
@@ -269,18 +271,18 @@ class _DaftarSellerState extends State<DaftarSeller> {
                     },
                   );
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF01AC66), // Ganti backgroundColor ke primary
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
                 child: Text(
                   'Lanjut untuk Membuka Toko',
                   style: GoogleFonts.patrickHand(
                     fontSize: 18,
                     color: Colors.white,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF01AC66), // Ganti backgroundColor ke primary
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
                   ),
                 ),
               ),
@@ -296,7 +298,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(4),
           border: Border.all(
@@ -311,9 +313,9 @@ class _DaftarSellerState extends State<DaftarSeller> {
               height: 50,
               fit: BoxFit.contain,
               placeholderBuilder: (context) =>
-                  CircularProgressIndicator(), // Indikator loading opsional
+                  const CircularProgressIndicator(), // Indikator loading opsional
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,7 +327,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     description,
                     style: GoogleFonts.patrickHand(
@@ -336,9 +338,9 @@ class _DaftarSellerState extends State<DaftarSeller> {
                 ],
               ),
             ),
-            SizedBox(width: 10), // Sesuaikan spasi di sini
+            const SizedBox(width: 10), // Sesuaikan spasi di sini
             if (isSelected)
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(top: 20, right: 10),
                 child: Align(
                   alignment: Alignment.centerRight,
@@ -366,7 +368,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
           height: 80,
           fit: BoxFit.cover,
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -378,7 +380,7 @@ class _DaftarSellerState extends State<DaftarSeller> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text(
                 description,
                 style: GoogleFonts.patrickHand(

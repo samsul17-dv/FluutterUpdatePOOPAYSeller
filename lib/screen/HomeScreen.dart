@@ -20,12 +20,15 @@ class Homescreen extends StatefulWidget {
     'https://samsulmuarif.my.id/server/menu/menu_04.jpeg',
   ];
 
+  const Homescreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomescreenState createState() => _HomescreenState();
 }
 
 class _HomescreenState extends State<Homescreen> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   Timer? _timer;
   int _selectedIndex = 0;
   DateTime? _lastBackPressed;
@@ -44,14 +47,14 @@ class _HomescreenState extends State<Homescreen> {
   }
 
   void _startAutoPlay() {
-    _timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
       if (_pageController.hasClients) {
         if (_pageController.page?.round() == widget.imgList.length - 1) {
           _pageController.animateToPage(0,
-              duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+              duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
         } else {
           _pageController.nextPage(
-              duration: Duration(milliseconds: 800), curve: Curves.easeInOut);
+              duration: const Duration(milliseconds: 800), curve: Curves.easeInOut);
         }
       }
     });
@@ -83,14 +86,14 @@ class _HomescreenState extends State<Homescreen> {
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(color: Colors.grey),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: const Row(
                     children: [
                       Icon(Icons.search, color: Colors.grey, size: 20),
                       SizedBox(width: 8),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(bottom: 2.0),
+                          padding: EdgeInsets.only(bottom: 2.0),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Cari di POOPAY',
@@ -105,17 +108,17 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.mail_outline, color: Colors.grey),
+                    icon: const Icon(Icons.mail_outline, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: Icon(Icons.menu, color: Colors.grey),
+                    icon: const Icon(Icons.menu, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
@@ -137,14 +140,14 @@ class _HomescreenState extends State<Homescreen> {
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(color: Colors.grey),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: const Row(
                     children: [
                       Icon(Icons.search, color: Colors.grey, size: 20),
                       SizedBox(width: 8),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(bottom: 2.0),
+                          padding: EdgeInsets.only(bottom: 2.0),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Cari di Official Store',
@@ -159,17 +162,17 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.mail_outline, color: Colors.grey),
+                    icon: const Icon(Icons.mail_outline, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: Icon(Icons.menu, color: Colors.grey),
+                    icon: const Icon(Icons.menu, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
@@ -191,14 +194,14 @@ class _HomescreenState extends State<Homescreen> {
                     borderRadius: BorderRadius.circular(4),
                     border: Border.all(color: Colors.grey),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: Row(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: const Row(
                     children: [
                       Icon(Icons.search, color: Colors.grey, size: 20),
                       SizedBox(width: 8),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(bottom: 2.0),
+                          padding: EdgeInsets.only(bottom: 2.0),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Cari Transaksi Kamu',
@@ -213,17 +216,17 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.mail_outline, color: Colors.grey),
+                    icon: const Icon(Icons.mail_outline, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: Icon(Icons.menu, color: Colors.grey),
+                    icon: const Icon(Icons.menu, color: Colors.grey),
                     iconSize: 24.0,
                     onPressed: () {},
                   ),
@@ -235,12 +238,12 @@ class _HomescreenState extends State<Homescreen> {
       case 3:
         return AppBar(
           automaticallyImplyLeading: false,
-          title: Text("Account Page"),
+          title: const Text("Account Page"),
         );
       default:
         return AppBar(
           automaticallyImplyLeading: false,
-          title: Text("Home Page"),
+          title: const Text("Home Page"),
         );
     }
   }
@@ -252,28 +255,28 @@ class _HomescreenState extends State<Homescreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               BannerSliderWidget(
                 imgList: widget.imgList,
                 pageController: _pageController,
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               MenuWidget(
                 menuImgList: widget.menuImgList,
               ),
-              SizedBox(height: 10),
-              LatestProductsWidget(),
+              const SizedBox(height: 10),
+              const LatestProductsWidget(),
             ],
           ),
         );
       case 1:
-        return Center(child: Text("Official Page"));
+        return const Center(child: Text("Official Page"));
       case 2:
-        return Center(child: Text("Transactions Page"));
+        return const Center(child: Text("Transactions Page"));
       case 3:
-        return AccountWidget(); // Use AccountWidget here
+        return const AccountWidget(); // Use AccountWidget here
       default:
-        return Center(child: Text("Home Page"));
+        return const Center(child: Text("Home Page"));
     }
   }
 
@@ -291,7 +294,7 @@ class _HomescreenState extends State<Homescreen> {
         } else {
           DateTime now = DateTime.now();
           if (_lastBackPressed == null ||
-              now.difference(_lastBackPressed!) > Duration(seconds: 2)) {
+              now.difference(_lastBackPressed!) > const Duration(seconds: 2)) {
             // Set last back pressed time
             _lastBackPressed = now;
             return false; // Prevent exiting

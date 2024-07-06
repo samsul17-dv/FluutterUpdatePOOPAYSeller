@@ -5,6 +5,8 @@ import 'ProductCard.dart'; // Pastikan path-nya benar
 import 'package:google_fonts/google_fonts.dart';
 
 class LatestProductsWidget extends StatefulWidget {
+  const LatestProductsWidget({super.key});
+
   @override
   _LatestProductsWidgetState createState() => _LatestProductsWidgetState();
 }
@@ -21,18 +23,25 @@ class _LatestProductsWidgetState extends State<LatestProductsWidget> {
   }
 
   Future<void> fetchData() async {
-    final url =
+    const url =
         'https://samsulmuarif.my.id/server/poopay/get_products.php'; // Ganti dengan endpoint API PHP Anda
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
-        setState(() {
-          products = (jsonData['products'] as List)
-              .map((data) => Product.fromJson(data))
-              .toList();
-          isLoading = false;
-        });
+        if (jsonData['products'] != null) {
+          setState(() {
+            products = (jsonData['products'] as List)
+                .map((data) => Product.fromJson(data))
+                .toList();
+            isLoading = false;
+          });
+        } else {
+          setState(() {
+            errorMessage = 'Produk tidak ditemukan';
+            isLoading = false;
+          });
+        }
       } else {
         setState(() {
           errorMessage = 'Gagal memuat produk';
@@ -52,7 +61,7 @@ class _LatestProductsWidgetState extends State<LatestProductsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
@@ -64,15 +73,15 @@ class _LatestProductsWidgetState extends State<LatestProductsWidget> {
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         errorMessage.isNotEmpty
             ? Center(child: Text(errorMessage))
             : products.isEmpty
-                ? Center(child: Text('Tidak ada produk yang tersedia'))
+                ? const Center(child: Text('Tidak ada produk yang tersedia'))
                 : GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
@@ -109,6 +118,8 @@ class Product {
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
+
+    
     return Product(
       productName: json['productName'],
       price: json['price'],

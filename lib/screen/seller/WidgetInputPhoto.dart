@@ -4,6 +4,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PhotoStack extends StatefulWidget {
+  const PhotoStack({super.key});
+
   @override
   _PhotoStackState createState() => _PhotoStackState();
 }
@@ -73,7 +75,7 @@ class _PhotoStackState extends State<PhotoStack> {
                 bottom: 8,
                 right: 8,
                 child: IconButton(
-                  icon: Icon(Icons.camera_alt),
+                  icon: const Icon(Icons.camera_alt),
                   onPressed: _openSelfiePicker,
                   tooltip: 'Pilih Foto Selfie',
                 ),
@@ -81,7 +83,7 @@ class _PhotoStackState extends State<PhotoStack> {
             ],
           ),
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Expanded(
           child: Stack(
             children: [
@@ -105,7 +107,7 @@ class _PhotoStackState extends State<PhotoStack> {
                 bottom: 8,
                 right: 8,
                 child: IconButton(
-                  icon: Icon(Icons.camera_alt),
+                  icon: const Icon(Icons.camera_alt),
                   onPressed: _openKtpPicker,
                   tooltip: 'Pilih Foto KTP',
                 ),

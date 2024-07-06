@@ -20,6 +20,8 @@ class HalamanVerifikasi extends StatelessWidget {
   File? _selectedSelfieFile;
   File? _selectedKtpFile;
 
+  HalamanVerifikasi({super.key});
+
   InputDecoration _buildInputDecoration(String labelText) {
     return InputDecoration(
       hintText: labelText,
@@ -30,13 +32,13 @@ class HalamanVerifikasi extends StatelessWidget {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide: BorderSide(color: Color(0xFF01AC66)),
+        borderSide: const BorderSide(color: Color(0xFF01AC66)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
         borderSide: BorderSide(color: Colors.grey[400]!),
       ),
-      contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
     );
   }
 
@@ -73,7 +75,7 @@ class HalamanVerifikasi extends StatelessWidget {
   void _showDataEmptyPopup(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -82,9 +84,9 @@ class HalamanVerifikasi extends StatelessWidget {
       builder: (BuildContext context) {
         return SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             height: 400,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -106,7 +108,7 @@ class HalamanVerifikasi extends StatelessWidget {
                   'Kamu Belum Mengisi Data Nih!',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                         color: Colors.black,
                         fontSize: 24,
                         fontWeight: FontWeight.bold),
@@ -116,10 +118,10 @@ class HalamanVerifikasi extends StatelessWidget {
                   'Ayo isi Data Kamu dengan Benar dan Benar, Serta Gunakan Dokumen yang Valid untuk Kelancaran Verifikasi Data Diri Kamu!.',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(color: Colors.black, fontSize: 12),
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 12),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -127,17 +129,17 @@ class HalamanVerifikasi extends StatelessWidget {
                       Navigator.pop(
                           context); // Close the bottom sheet when button is pressed
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF01AC66),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
                     child: Text(
                       'Kembali Mengisi Data',
                       style: GoogleFonts.patrickHand(
-                        textStyle: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF01AC66),
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                        textStyle: const TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ),
@@ -153,7 +155,7 @@ class HalamanVerifikasi extends StatelessWidget {
   void _showConfirmationDialog(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -162,9 +164,9 @@ class HalamanVerifikasi extends StatelessWidget {
       builder: (BuildContext context) {
         return SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
@@ -183,17 +185,17 @@ class HalamanVerifikasi extends StatelessWidget {
                 Text(
                   'Yeay! Data Sudah Lengkap.',
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Text(
                   'Sebelum Lanjut, Apakah Kamu Yakin Sudah Memasukan Data dengan Baik dan Benar, serta Menggunakan Dokumen yang Valid?',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(color: Colors.black, fontSize: 12),
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 12),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -201,21 +203,21 @@ class HalamanVerifikasi extends StatelessWidget {
                       Navigator.pop(context); // Close the bottom sheet when button is pressed
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => WidgetWaiting()),
+                        MaterialPageRoute(builder: (context) => const WidgetWaiting()),
                       ); // Navigate to WidgetWaiting page
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF01AC66),
+                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    ),
                     child: Text(
                       'Lanjutkan untuk Konfirmasi',
                       textAlign: TextAlign.center, // Align text to the center horizontally
                       style: GoogleFonts.patrickHand(
-                        textStyle: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF01AC66),
-                      padding: EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                        textStyle: const TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
                   ),
@@ -257,12 +259,12 @@ class HalamanVerifikasi extends StatelessWidget {
       if (response.statusCode == 200) {
         // Data sent successfully, handle response if needed
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Data berhasil dikirim')),
+          const SnackBar(content: Text('Data berhasil dikirim')),
         );
       } else {
         // Error sending data
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal mengirim data')),
+          const SnackBar(content: Text('Gagal mengirim data')),
         );
       }
     }
@@ -310,14 +312,14 @@ class HalamanVerifikasi extends StatelessWidget {
                                 bottom: 0,
                                 right: 0,
                                 child: IconButton(
-                                  icon: Icon(Icons.camera_alt),
+                                  icon: const Icon(Icons.camera_alt),
                                   onPressed: _openSelfiePicker,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(width: 16),
+                        const SizedBox(width: 16),
                         Expanded(
                           child: Stack(
                             children: [
@@ -341,7 +343,7 @@ class HalamanVerifikasi extends StatelessWidget {
                                 bottom: 0,
                                 right: 0,
                                 child: IconButton(
-                                  icon: Icon(Icons.camera_alt),
+                                  icon: const Icon(Icons.camera_alt),
                                   onPressed: _openKtpPicker,
                                 ),
                               ),
@@ -350,7 +352,7 @@ class HalamanVerifikasi extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
                       controller: _namaLengkapController,
                       focusNode: _namaLengkapFocus,
@@ -366,7 +368,7 @@ class HalamanVerifikasi extends StatelessWidget {
                         FocusScope.of(context).requestFocus(_namaTokoFocus);
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
                       controller: _namaTokoController,
                       focusNode: _namaTokoFocus,
@@ -382,7 +384,7 @@ class HalamanVerifikasi extends StatelessWidget {
                         FocusScope.of(context).requestFocus(_alamatTokoFocus);
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
                       controller: _alamatTokoController,
                       focusNode: _alamatTokoFocus,
@@ -398,7 +400,7 @@ class HalamanVerifikasi extends StatelessWidget {
                         FocusScope.of(context).requestFocus(_bankFocus);
                       },
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
                       controller: _bankController,
                       focusNode: _bankFocus,
@@ -411,7 +413,7 @@ class HalamanVerifikasi extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -424,18 +426,18 @@ class HalamanVerifikasi extends StatelessWidget {
                             _showConfirmationDialog(context);
                           }
                         },
-                        child: Text('Lanjutkan untuk Konfirmasi',
-                            style: GoogleFonts.patrickHand(
-                              textStyle: TextStyle(fontSize: 18),
-                            )),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF01AC66),
-                          foregroundColor: Color.fromARGB(255, 255, 255, 255),
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          backgroundColor: const Color(0xFF01AC66),
+                          foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
+                        child: Text('Lanjutkan untuk Konfirmasi',
+                            style: GoogleFonts.patrickHand(
+                              textStyle: const TextStyle(fontSize: 18),
+                            )),
                       ),
                     ),
                   ],
@@ -460,7 +462,7 @@ class InputFields extends StatelessWidget {
   final Function(String?)? onFieldSubmitted;
   final String? Function(String?)? validator; // Update the type here
 
-  const InputFields({
+  const InputFields({super.key, 
     required this.hintText,
     required this.icon,
     required this.controller,
@@ -498,7 +500,7 @@ class PhotoStack extends StatelessWidget {
   final File? photoFile;
   final VoidCallback onTap;
 
-  const PhotoStack({
+  const PhotoStack({super.key, 
     required this.photoFile,
     required this.onTap,
   });
@@ -519,7 +521,7 @@ class PhotoStack extends StatelessWidget {
                   photoFile!,
                   fit: BoxFit.cover,
                 )
-              : Center(
+              : const Center(
                   child: Text('Belum ada foto dipilih'),
                 ),
         ),
@@ -527,7 +529,7 @@ class PhotoStack extends StatelessWidget {
           bottom: 0,
           right: 0,
           child: IconButton(
-            icon: Icon(Icons.camera_alt),
+            icon: const Icon(Icons.camera_alt),
             onPressed: onTap,
           ),
         ),

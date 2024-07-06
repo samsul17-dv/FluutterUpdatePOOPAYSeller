@@ -4,7 +4,7 @@ import 'package:aplikasi/screen/HomeScreen.dart';
 import 'package:aplikasi/screen/WelcomeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -27,13 +27,13 @@ class _SplashScreenState extends State<SplashScreen> {
       // Navigate to HomeScreen if logged in
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Homescreen()),
+        MaterialPageRoute(builder: (context) => const Homescreen()),
       );
     } else {
       // Navigate to WelcomeScreen if not logged in
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
       );
     }
   }

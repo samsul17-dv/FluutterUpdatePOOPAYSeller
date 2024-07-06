@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountWidget extends StatefulWidget {
+  const AccountWidget({super.key});
+
   @override
   _AccountWidgetState createState() => _AccountWidgetState();
 }
@@ -44,13 +46,13 @@ class _AccountWidgetState extends State<AccountWidget> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 30,
                   backgroundImage: NetworkImage(
                     'https://images.tokopedia.net/img/cache/300/tPxBYm/2023/1/20/915df97c-3b46-4de9-ab6b-a22e2190b8e9.jpg.webp?ect=4g',
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -61,7 +63,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 0),
+                    const SizedBox(height: 0),
                     Text(
                       email, // Email pengguna dari shared_preferences
                       style: GoogleFonts.patrickHand(
@@ -71,9 +73,9 @@ class _AccountWidgetState extends State<AccountWidget> {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 IconButton(
-                  icon: Icon(Icons.settings, color: Colors.grey),
+                  icon: const Icon(Icons.settings, color: Colors.grey),
                   iconSize: 24.0,
                   onPressed: () {
                     // Handler untuk tombol pengaturan
@@ -81,7 +83,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                 ),
               ],
             ),
-            SizedBox(height: 20), // Jarak vertikal
+            const SizedBox(height: 20), // Jarak vertikal
             // Menu Horizontal
             GestureDetector(
               onTap: () {
@@ -89,7 +91,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                 Navigator.of(context).push(
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        SecondScreen(),
+                        const SecondScreen(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       return child; // No transition animation
@@ -108,9 +110,9 @@ class _AccountWidgetState extends State<AccountWidget> {
                       horizontal: 16.0), // Increase vertical padding
                   child: Row(
                     children: [
-                      Icon(Icons.store,
+                      const Icon(Icons.store,
                           color: Colors.grey, size: 24), // Ikon toko
-                      SizedBox(width: 8), // Jarak horizontal
+                      const SizedBox(width: 8), // Jarak horizontal
                       Text(
                         'Mau Jualan? Buka Toko Yuk!', // Teks untuk menu "Buka Toko"
                         style: GoogleFonts.patrickHand(
@@ -118,15 +120,15 @@ class _AccountWidgetState extends State<AccountWidget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(), // Ruang pembuat
-                      Icon(Icons.arrow_forward_ios,
+                      const Spacer(), // Ruang pembuat
+                      const Icon(Icons.arrow_forward_ios,
                           color: Colors.grey, size: 20), // Ikon panah ke kanan
                     ],
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 10), // Jarak vertikal
+            const SizedBox(height: 10), // Jarak vertikal
             // Menu Logout atau Login
             GestureDetector(
               onTap: () {
@@ -159,7 +161,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                             username == 'Pengguna' ? Colors.grey : Colors.grey,
                         size: 24,
                       ), // Ikon login atau logout
-                      SizedBox(width: 8), // Jarak horizontal
+                      const SizedBox(width: 8), // Jarak horizontal
                       Text(
                         username == 'Pengguna' ? 'Kamu Belum Masuk Nih, Masuk Dulu Yuk!' : 'Keluar Akun',
                         // Teks untuk menu "Login" atau "Logout"
@@ -169,7 +171,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(), // Ruang pembuat
+                      const Spacer(), // Ruang pembuat
                       Icon(Icons.arrow_forward_ios,
                           color: username == 'Pengguna'
                               ? Colors.grey

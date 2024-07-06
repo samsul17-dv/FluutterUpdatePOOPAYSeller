@@ -8,7 +8,7 @@ import 'HomeScreen.dart'; // Pastikan import file HomeScreen.dart yang benar
 import 'SignUp.dart'; // Pastikan import file SignUp.dart yang benar
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -43,20 +43,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => Homescreen()), // Ganti dengan nama kelas halaman beranda Anda
+            MaterialPageRoute(builder: (context) => const Homescreen()), // Ganti dengan nama kelas halaman beranda Anda
           );
         } else {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Login Gagal'),
-              content: Text('Email atau Password salah.'),
+              title: const Text('Login Gagal'),
+              content: const Text('Email atau Password salah.'),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),
@@ -70,14 +70,14 @@ class _LoginScreenState extends State<LoginScreen> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Error'),
-          content: Text('Terjadi kesalahan saat melakukan login.'),
+          title: const Text('Error'),
+          content: const Text('Terjadi kesalahan saat melakukan login.'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         ),
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -104,18 +104,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Masuk Dulu Yuk!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     'Setelah Kamu membuat Akun, Kamu Wajib mengisi Formulir Masuk ini dengan Akun dan Kata Sandi yang sudah di buat ya!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 12.0,
                         color: Colors.grey,
                       ),
@@ -123,11 +123,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 controller: _emailController,
                 style: GoogleFonts.patrickHand(),
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Alamat Email',
                   hintText: 'Masukan Alamat Email',
                   border: OutlineInputBorder(
@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 controller: _passwordController,
                 style: GoogleFonts.patrickHand(),
@@ -162,22 +162,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                   labelText: 'Kata Sandi',
                   hintText: 'Masukan Kata Sandi',
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                   isCollapsed: true,
-                  prefixIcon: Icon(Icons.lock, color: Color(0xFF01AC66)),
+                  prefixIcon: const Icon(Icons.lock, color: Color(0xFF01AC66)),
                   suffixIcon: IconButton(
                     icon: Icon(
                       _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: Color(0xFF01AC66),
+                      color: const Color(0xFF01AC66),
                     ),
                     onPressed: () {
                       setState(() {
@@ -194,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -204,8 +204,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Color(0xFF01AC66), // Warna teks di tombol
-                  padding: EdgeInsets.symmetric(vertical: 18.0), // Sedikit tinggikan tombol
+                  backgroundColor: const Color(0xFF01AC66), // Warna teks di tombol
+                  padding: const EdgeInsets.symmetric(vertical: 18.0), // Sedikit tinggikan tombol
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -213,25 +213,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Masuk dan Nikmati Fitur',
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 18.0,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SignUpScreen()),
+                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
                     // Ganti SignUpScreen dengan nama kelas halaman pendaftaran Anda
                   );
                 },
                 child: Text(
                   'Belum memiliki akun? Buat Yuk!',
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 14.0,
                       color: Color(0xFF01AC66),
                     ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class WelcomeScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/background.jpg'),
                 fit: BoxFit.cover,
@@ -33,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
                     Text(
                       'POOPAY Indonesia Solusi Untuk Kebutuhan Pertanian',
                       style: GoogleFonts.patrickHand(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           color: Colors.white,
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
@@ -41,18 +41,18 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Text(
                       'Platform Inovatif untuk Bertemu dan Bertransaksi Produk Pertanian Berkualitas di Indonesia, Menyediakan Kemudahan bagi Para Petani dan Pembeli untuk Terhubung Secara Langsung.',
                       style: GoogleFonts.patrickHand(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                         ),
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -62,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: const Color(0xFF01AC66),
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4.0),
                           ),
@@ -70,7 +70,7 @@ class WelcomeScreen extends StatelessWidget {
                         child: Text(
                           'Log in',
                           style: GoogleFonts.patrickHand(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                             ),
@@ -78,7 +78,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     Center(
                       child: GestureDetector(
                         onTap: () {
@@ -87,7 +87,7 @@ class WelcomeScreen extends StatelessWidget {
                         child: Text(
                           'Masuk Sebagai Tamu',
                           style: GoogleFonts.patrickHand(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
                             ),

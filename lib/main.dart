@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const SplashScreen(),
       routes: {
-        '/login': (context) => LoginScreen(), // Remove const if constructor is not const
-        '/home': (context) => Homescreen(), // Remove const if constructor is not const
+        '/login': (context) => const LoginScreen(), // Remove const if constructor is not const
+        '/home': (context) => const Homescreen(), // Remove const if constructor is not const
       },
     );
   }

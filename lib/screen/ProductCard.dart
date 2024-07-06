@@ -7,7 +7,7 @@ class ProductCard extends StatelessWidget {
   final String storeName;
   final String imageUrl;
 
-  ProductCard({
+  const ProductCard({super.key, 
     required this.productName,
     required this.price,
     required this.storeName,
@@ -17,7 +17,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0), // Padding kiri dan kanan
+      padding: const EdgeInsets.symmetric(horizontal: 20.0), // Padding kiri dan kanan
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -27,7 +27,7 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(8.0)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(8.0)),
               child: Image.network(
                 imageUrl,
                 height: 120,
@@ -43,28 +43,28 @@ class ProductCard extends StatelessWidget {
                   Text(
                     productName,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     'IDR $price',
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     storeName,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
                       ),

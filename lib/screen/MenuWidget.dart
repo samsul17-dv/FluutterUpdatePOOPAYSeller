@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MenuWidget extends StatelessWidget {
   final List<String> menuImgList;
 
-  MenuWidget({
+  const MenuWidget({super.key, 
     required this.menuImgList,
   });
 
@@ -24,7 +24,7 @@ class MenuWidget extends StatelessWidget {
         Container(
           width: 85,
           height: 85,
-          margin: EdgeInsets.symmetric(vertical: 4),
+          margin: const EdgeInsets.symmetric(vertical: 4),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             image: DecorationImage(

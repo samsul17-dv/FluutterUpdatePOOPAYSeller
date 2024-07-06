@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:convert';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -14,11 +14,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscureText = true;
   bool _obscureConfirmText = true;
   final _formKey = GlobalKey<FormState>(); // Kunci form untuk validasi
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
   bool _isSubmitting = false;
 
   @override
@@ -68,7 +68,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               crossAxisAlignment:
                   CrossAxisAlignment.center, // Center align content
               children: <Widget>[
-                SizedBox(height: 20), // Margin top for the image
+                const SizedBox(height: 20), // Margin top for the image
                 Center(
                   child: Image.asset(
                     'assets/vector/ilustrasi.png',
@@ -76,18 +76,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 200,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Center(
                   child: Text(
                     'Yeay! Akun Berhasil dibuat.',
                     style: GoogleFonts.patrickHand(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF00540C), // Set the color to 00540C
+                      color: const Color(0xFF00540C), // Set the color to 00540C
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
@@ -140,11 +140,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Pendaftaran Gagal'),
+        title: const Text('Pendaftaran Gagal'),
         content: Text(message),
         actions: <Widget>[
           TextButton(
-            child: Text('OK'),
+            child: const Text('OK'),
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -160,7 +160,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       resizeToAvoidBottomInset:
           false, // Agar form tetap diam saat keyboard muncul
       body: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -174,18 +174,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     'Buat Akun Dulu Ya!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     'Sebelum Kamu bisa mendapatkan layanan POOPAY Indonesia Sepenuhnya, Kamu wajib Buat Akun dulu nih! Data Kamu dijamin Aman Kok!',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.patrickHand(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 12.0,
                         color: Colors.grey,
                       ),
@@ -193,12 +193,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 controller: _usernameController,
                 style: GoogleFonts
                     .patrickHand(), // Menggunakan font PatrickHand untuk input
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nama Kamu',
                   hintText: 'Masukan Nama Kamu Yuk!',
                   border: OutlineInputBorder(
@@ -229,12 +229,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 controller: _emailController,
                 style: GoogleFonts
                     .patrickHand(), // Menggunakan font PatrickHand untuk input
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Alamat Email',
                   hintText: 'Masukan Alamat Email Yuk!',
                   border: OutlineInputBorder(
@@ -268,12 +268,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 controller: _phoneController,
                 style: GoogleFonts
                     .patrickHand(), // Menggunakan font PatrickHand untuk input
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nomor Telepon atau WhatsApp',
                   hintText: 'Masukan Nomor Telepon atau WhatsApp',
                   border: OutlineInputBorder(
@@ -304,7 +304,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 controller: _passwordController,
                 style: GoogleFonts
@@ -313,28 +313,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                   labelText: 'Kata Sandi',
                   hintText: 'Masukan Kata Sandi',
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                     vertical: 16.0,
                     horizontal: 16.0,
                   ), // Tinggi input diperbesar sedikit
                   isCollapsed: true,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.lock,
                     color: Color(0xFF01AC66),
                   ), // Icon berwarna latar belakang tombol
                   suffixIcon: IconButton(
                     icon: Icon(
                       _obscureText ? Icons.visibility : Icons.visibility_off,
-                      color: Color(0xFF01AC66),
+                      color: const Color(0xFF01AC66),
                     ),
                     onPressed: () {
                       setState(() {
@@ -355,7 +355,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 controller: _confirmPasswordController,
                 style: GoogleFonts
@@ -364,21 +364,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                   labelText: 'Ulangi Kata Sandi',
                   hintText: 'Masukan Ulangi Kata Sandi',
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
                   ),
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                     vertical: 16.0,
                     horizontal: 16.0,
                   ), // Tinggi input diperbesar sedikit
                   isCollapsed: true,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.lock,
                     color: Color(0xFF01AC66),
                   ), // Icon berwarna latar belakang tombol
@@ -387,7 +387,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       _obscureConfirmText
                           ? Icons.visibility
                           : Icons.visibility_off,
-                      color: Color(0xFF01AC66),
+                      color: const Color(0xFF01AC66),
                     ),
                     onPressed: () {
                       setState(() {
@@ -408,22 +408,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               ElevatedButton(
                 onPressed: _registerUser,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Color(0xFF01AC66), // Text color
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  backgroundColor: const Color(0xFF01AC66), // Text color
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
                 child: _isSubmitting
-                    ? CircularProgressIndicator(
+                    ? const CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       )
-                    : Text(
+                    : const Text(
                         'Daftar',
                         style: TextStyle(
                           fontSize: 18.0,
@@ -433,7 +433,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/login');
@@ -441,7 +441,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Text(
                   'Sudah punya akun? Masuk di sini',
                   style: GoogleFonts.patrickHand(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       fontSize: 14.0,
                       color: Color(0xFF01AC66),
                     ),
