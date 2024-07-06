@@ -81,7 +81,8 @@ class _LatestProductsWidgetState extends State<LatestProductsWidget> {
                 : GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
@@ -89,16 +90,17 @@ class _LatestProductsWidgetState extends State<LatestProductsWidget> {
                     itemCount: products.length,
                     itemBuilder: (context, index) {
                       final product = products[index];
-                      String imageUrl =
-                          'https://samsulmuarif.my.id/server/poopay/get_products.php/${product.imageUrl}';
+                      // String imageUrl =
+                      //     'https://samsulmuarif.my.id/server/poopay/get_products.php/${product.imageUrl}';
                       return ProductCard(
                         productName: product.productName,
                         price: product.price,
                         storeName: product.storeName,
-                        imageUrl: imageUrl,
+                        imageUrl: product.imageUrl,
                       );
                     },
                   ),
+        // ),
       ],
     );
   }
@@ -118,13 +120,13 @@ class Product {
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
-
-    
+    // https://samsulmuarif.my.id/server/poopay/${json['imageUrl']}
     return Product(
       productName: json['productName'],
       price: json['price'],
       storeName: json['storeName'],
-      imageUrl: 'https://samsulmuarif.my.id/server/poopay/${json['imageUrl']}',
+      imageUrl:
+          'https://samsulmuarif.my.id/server/poopay/${json['imageUrl']}' ?? '',
     );
   }
 }

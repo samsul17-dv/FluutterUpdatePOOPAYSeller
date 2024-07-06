@@ -7,13 +7,13 @@ import 'MenuWidget.dart';
 import 'LatestProductsWidget.dart';
 
 class Homescreen extends StatefulWidget {
-  final List<String> imgList = [
+  final List<String> imgList = const [
     'https://samsulmuarif.my.id/server/banner/banner_01.png',
     'https://samsulmuarif.my.id/server/banner/banner_02.png',
     'https://samsulmuarif.my.id/server/banner/banner_03.png',
   ];
 
-  final List<String> menuImgList = [
+  final List<String> menuImgList = const [
     'https://samsulmuarif.my.id/server/menu/menu_01.png',
     'https://samsulmuarif.my.id/server/menu/menu_02.png',
     'https://samsulmuarif.my.id/server/menu/menu_03.jpeg',
@@ -23,7 +23,6 @@ class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomescreenState createState() => _HomescreenState();
 }
 
